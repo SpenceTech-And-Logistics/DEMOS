@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'DM Sans', system-ui, sans-serif; color: #1b1f24; background: #f6f3ee; -webkit-font-smoothing: antialiased; overflow-x: clip; }
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; color: inherit; }
+h1, h2, h3, p { margin: 0; text-wrap: pretty; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 3px solid #e8943a; outline-offset: 3px; }
+
+/* placeholder pictures */
+.ph { position: relative; width: 100%; overflow: hidden; background: #ddd; }
+.ph svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ph-tag { position: absolute; left: 10px; bottom: 10px; background: rgba(255, 255, 255, .86); color: #333; font: 600 11px/1 'DM Sans', sans-serif; letter-spacing: .06em; text-transform: uppercase; padding: 5px 9px; border-radius: 99px; }
+
+/* motion */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1); }
+.reveal.in { opacity: 1; transform: none; }
+.progress { position: fixed; z-index: 100; top: 0; left: 0; right: 0; height: 4px; transform-origin: 0 50%; transform: scaleX(0); background: var(--accent, #e8943a); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@keyframes bob { 50% { transform: translateY(-10px); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+.page-fade { animation: fadeUp .5s ease both; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* demo bar */
+.demobar { position: fixed; z-index: 90; right: max(14px, env(safe-area-inset-right, 0px)); bottom: max(14px, env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 10px; background: #14181d; color: #fff; padding: 8px 8px 8px 8px; border-radius: 99px; font: 600 13px/1 'DM Sans', sans-serif; box-shadow: 0 8px 28px rgba(0, 0, 0, .25); max-width: calc(100vw - 28px); }
+.demobar a { background: #fff; color: #14181d; padding: 9px 14px; border-radius: 99px; white-space: nowrap; }
+.demobar a:hover { background: #ffd9a8; }
+.demobar span { padding-right: 12px; opacity: .8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+@media (max-width: 520px) { .demobar span { display: none; } }
+
+/* hub */
+.hub { max-width: 1180px; margin: 0 auto; padding: 56px max(20px, env(safe-area-inset-left, 0px)) 40px; }
+.hub-head { max-width: 760px; display: grid; gap: 18px; }
+.hub-badge { justify-self: start; background: #14181d; color: #ffd9a8; font: 700 12px/1 'DM Sans'; letter-spacing: .14em; text-transform: uppercase; padding: 8px 14px; border-radius: 99px; }
+.hub h1 { font: 400 clamp(40px, 7vw, 76px)/1.02 'DM Serif Display', serif; letter-spacing: -.01em; }
+.hub h1 em { color: #c4521e; }
+.hub-head p { font-size: 18px; line-height: 1.65; color: #4d5560; }
+.hub-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 22px; }
+.hub-card { display: block; background: #fff; border: 1px solid #e6dfd3; border-radius: 22px; overflow: hidden; transition: transform .3s, box-shadow .3s; height: 100%; }
+.hub-card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(40, 30, 10, .14); }
+.hub-body { padding: 22px 24px 26px; display: grid; gap: 8px; }
+.hub-kind { justify-self: start; font: 700 11.5px/1 'DM Sans'; letter-spacing: .12em; text-transform: uppercase; padding: 6px 11px; border-radius: 99px; }
+.hub-kind.spa { background: #fde6d4; color: #a7410f; }
+.hub-kind.mpa { background: #d9ece7; color: #1a6657; }
+.hub-body h2 { font: 400 28px/1.1 'DM Serif Display', serif; }
+.hub-who { font-weight: 700; font-size: 15px; }
+.hub-body p { color: #4d5560; font-size: 15px; line-height: 1.55; }
+.hub-open { margin-top: 8px; font-weight: 700; color: #c4521e; transition: letter-spacing .25s; }
+.hub-card:hover .hub-open { letter-spacing: .04em; }
+.hub-foot { margin-top: 56px; text-align: center; font-size: 13px; color: #7a8089; }
+
+/* keep rotated bands and floating decorations from widening the page */
+.mpa, .t-consult, .t-log, .hub { overflow-x: clip; }
+html { overflow-x: clip; }
