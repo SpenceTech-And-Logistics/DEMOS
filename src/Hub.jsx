@@ -27,7 +27,7 @@ export default function Hub() {
             <Link to={d.to} className="hub-card">
               <Ph seed={i + 3} hue={d.hue} ratio="16 / 9" showLabel={false} />
               <div className="hub-body">
-                <span className={`hub-kind ${d.kind === 'Single page' ? 'spa' : 'mpa'}`}>{d.kind}</span>
+                <span className={`hub-kind ${d.kind === 'Single page' ? 'k-spa' : 'k-mpa'}`}>{d.kind}</span>
                 <h2>{d.name}</h2>
                 <p className="hub-who">{d.who}</p>
                 <p>{d.note}</p>

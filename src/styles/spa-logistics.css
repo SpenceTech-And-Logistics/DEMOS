@@ -58,7 +58,7 @@
 .l-result li.now { color: var(--navy); font-weight: 700; } .l-result li.now i { border-color: var(--amber); background: var(--amber); box-shadow: 0 0 0 6px rgba(255, 176, 32, .3); }
 
 .l-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 18px; margin-top: 26px; }
-.l-card { background: #fff; border-radius: 16px; padding: 26px; display: grid; gap: 10px; border: 1px solid #e1e8f1; transition: transform .3s, border-color .3s; }
+.l-card { align-content: start; background: #fff; border-radius: 16px; padding: 26px; display: grid; gap: 10px; border: 1px solid #e1e8f1; transition: transform .3s, border-color .3s; }
 .l-card:hover { transform: translateY(-6px); border-color: var(--blue); }
 .l-card span { font-size: 34px; }
 .l-card p { font-size: 15px; }

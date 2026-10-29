@@ -47,10 +47,10 @@ h1, h2, h3 { text-wrap: balance; }
 .hub-grid { margin-top: 44px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 22px; }
 .hub-card { display: block; background: #fff; border: 1px solid #e6dfd3; border-radius: 22px; overflow: hidden; transition: transform .3s, box-shadow .3s; height: 100%; }
 .hub-card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(40, 30, 10, .14); }
-.hub-body { padding: 22px 24px 26px; display: grid; gap: 8px; }
+.hub-body { padding: 22px 24px 26px; display: grid; gap: 8px; align-content: start; }
 .hub-kind { justify-self: start; font: 700 11.5px/1 'DM Sans'; letter-spacing: .12em; text-transform: uppercase; padding: 6px 11px; border-radius: 99px; }
-.hub-kind.spa { background: #fde6d4; color: #a7410f; }
-.hub-kind.mpa { background: #d9ece7; color: #1a6657; }
+.hub-kind.k-spa { background: #fde6d4; color: #a7410f; }
+.hub-kind.k-mpa { background: #d9ece7; color: #1a6657; }
 .hub-body h2 { font: 400 28px/1.1 'DM Serif Display', serif; }
 .hub-who { font-weight: 700; font-size: 15px; }
 .hub-body p { color: #4d5560; font-size: 15px; line-height: 1.55; }
