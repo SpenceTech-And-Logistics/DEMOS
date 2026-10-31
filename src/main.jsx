@@ -10,6 +10,7 @@ import './styles/ngo.css'
 import './styles/spa-restaurant.css'
 import './styles/spa-estate.css'
 import './styles/mini.css'
+import './styles/spa-creator.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

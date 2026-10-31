@@ -96,3 +96,20 @@
   .x-news article { flex-direction: column; gap: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .mini *, .mini *::before { animation: none !important; transition: none !important; } }
+.x-gal { columns: 3 240px; column-gap: 18px; }
+.x-gal figure { break-inside: avoid; margin: 0 0 18px; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .08); }
+.x-gal .ph { transition: transform .5s; }
+.x-gal figure:hover .ph { transform: scale(1.06); }
+.x-gal figure { overflow: hidden; }
+.x-gal figcaption { padding: 10px 14px; font-weight: 600; font-size: 14px; }
+.x-bars { display: grid; gap: 18px; max-width: 700px; }
+.x-bars span { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 6px; }
+.x-bars i { display: block; height: 10px; border-radius: 99px; background: var(--x-tint); position: relative; overflow: hidden; }
+.x-bars i::after { content: ''; position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 99px; background: var(--x-main); animation: x-fill 1.2s .3s cubic-bezier(.2, .7, .2, 1) forwards; }
+@keyframes x-fill { to { width: var(--w); } }
+.x-social { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 18px; margin-top: 18px; border-top: 1px solid rgba(255, 255, 255, .15); }
+.x-social a { display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border-radius: 99px; background: rgba(255, 255, 255, .08); color: #fff; transition: background .2s, transform .2s; }
+.x-social a:hover { background: rgba(255, 255, 255, .18); transform: translateY(-2px); }
+.x-social b { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--x-accent); color: var(--x-ink); font-size: 13px; text-transform: uppercase; }
+.x-social span { display: grid; font-weight: 700; font-size: 13px; line-height: 1.2; }
+.x-social small { font-weight: 500; opacity: .75; font-size: 12px; }

@@ -59,6 +59,22 @@ function Block({ b, site }) {
         ))}
       </div>
     )
+  if (b.type === 'gallery')
+    return (
+      <div className="x-gal">
+        {b.items.map((g, i) => (
+          <Reveal key={g.t} delay={(i % 4) * 70}><figure className={g.wide ? 'wide' : ''}><Ph hue={g.hue} seed={i + 50} ratio={g.wide ? '16 / 9' : i % 3 === 1 ? '3 / 4' : '1 / 1'} label={g.t} showLabel={false} /><figcaption>{g.t}</figcaption></figure></Reveal>
+        ))}
+      </div>
+    )
+  if (b.type === 'bars')
+    return (
+      <div className="x-bars">
+        {b.items.map(([l, v], i) => (
+          <Reveal key={l} delay={i * 60}><div><span>{l}<b>{v}%</b></span><i style={{ '--w': `${v}%` }} /></div></Reveal>
+        ))}
+      </div>
+    )
   if (b.type === 'text')
     return <div className="x-text">{b.paras.map((p) => <p key={p.slice(0, 24)}>{p}</p>)}</div>
   if (b.type === 'table')
@@ -142,7 +158,9 @@ export default function MiniSite({ site }) {
       <main key={slug} className="x-main">
         {!slug ? <Home site={site} /> : page ? <Page site={site} page={page} /> : <section className="x-head"><div className="x-wrap"><h1>Page not found</h1><Link to={site.base} className="x-btn">Back to home</Link></div></section>}
       </main>
-      <footer className="x-foot"><div className="x-wrap x-foot-in"><span>© {site.name} (sample site, fictional)</span><span>Built by SpenceTec and Logistics Limited</span></div></footer>
+      <footer className="x-foot"><div className="x-wrap x-foot-in"><span>© {site.name} (sample site, fictional)</span><span>Built by SpenceTec and Logistics Limited</span></div>
+        {site.social && <div className="x-wrap x-social" aria-label="Social links">{site.social.map(([n, h]) => <a key={n} href="#top" onClick={(e) => e.preventDefault()} title="Sample link"><b>{n.slice(0, 2)}</b><span>{n}<small>{h}</small></span></a>)}</div>}
+      </footer>
     </div>
   )
 }
