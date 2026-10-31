@@ -7,6 +7,9 @@ import './styles/spa-consultant.css'
 import './styles/spa-logistics.css'
 import './styles/mpa.css'
 import './styles/ngo.css'
+import './styles/spa-restaurant.css'
+import './styles/spa-estate.css'
+import './styles/mini.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
