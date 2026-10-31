@@ -6,6 +6,7 @@ import './styles/base.css'
 import './styles/spa-consultant.css'
 import './styles/spa-logistics.css'
 import './styles/mpa.css'
+import './styles/ngo.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

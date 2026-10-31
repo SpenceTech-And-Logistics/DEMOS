@@ -1,6 +1,6 @@
 # SpenceTec demo sites
 
-Four sample websites with placeholder text and pictures, for client presentations.
+Five sample websites with placeholder text and pictures, for client presentations.
 
 | Route | Type | Sample |
 |---|---|---|
@@ -8,8 +8,9 @@ Four sample websites with placeholder text and pictures, for client presentation
 | `/spa/logistics` | Single page | Business (freight company, demo shipment tracker) |
 | `/mpa/mp` | Multi-page | Member of Parliament (7 pages) |
 | `/mpa/ps` | Multi-page | Principal Secretary (8 pages) |
+| `/mpa/ngo` | Multi-page | Foundation or NGO (12 pages: Home, About, Programmes, Impact, Stories with article pages, Get involved, Team, Gallery, Events, FAQ, Contact) |
 
-`/` is a start page linking to all four. A floating "All demos" button returns to it.
+`/` is a start page linking to all five. A floating "All demos" button returns to it.
 
 ## Run
 ```
@@ -25,6 +26,7 @@ npx wrangler deploy
 
 ## Editing the sample content
 - MP and PS text: `src/data/mp.js`, `src/data/ps.js`
+- Foundation text: `src/ngo/data.js` (styles in `src/styles/ngo.css`, scoped under `.ngo`)
 - Single-page text: `src/spa/Consultant.jsx`, `src/spa/Logistics.jsx`
 - Placeholder pictures are drawn in code (`src/shared/Ph.jsx`). Replace any `<Ph />` with an `<img>` to use a real photo.
 - Forms are demos: nothing is sent.
