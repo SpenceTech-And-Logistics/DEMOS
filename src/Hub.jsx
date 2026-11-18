@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { isSolo, shareUrl } from './shared/solo.js'
 import Ph from './shared/Ph.jsx'
 import { Reveal } from './shared/hooks.jsx'
 
@@ -15,23 +17,39 @@ const demos = [
   { to: '/spa/creator', kind: 'Single page', name: 'Creator portfolio', who: 'Amara Creates (sample)', note: 'Follower counts, filterable post feed, brand work, social links in the footer.', hue: 330 },
   { to: '/mpa/photographer', kind: 'Multi-page', name: 'Photographer portfolio', who: 'Zawadi Studio (sample)', note: '5 pages: Portfolio gallery, Services, About, Contact. Social links in the footer.', hue: 25 },
   { to: '/mpa/developer', kind: 'Multi-page', name: 'Developer portfolio', who: 'Kevin Sample (sample)', note: '5 pages: Projects, Skills, Experience, Contact. Social links in the footer.', hue: 215 },
+  { to: '/spa/dj', kind: 'Single page', name: 'DJ', who: 'DJ Kito (sample)', note: 'Animated equalizer, mix player, gig list, booking packages and form.', hue: 310 },
+  { to: '/mpa/events', kind: 'Multi-page', name: 'Events company', who: 'Tukio Events (sample)', note: '6 pages: Services, Portfolio, Packages, Team, Get a quote.', hue: 350 },
+  { to: '/mpa/resort', kind: 'Multi-page', name: 'Resort', who: 'Palm Ridge Resort (sample)', note: '6 pages: Rooms and rates, Dining, Experiences, Gallery, Book a stay.', hue: 190 },
 ]
 
+function ShareButton({ to }) {
+  const [done, setDone] = useState(false)
+  const copy = async () => {
+    const url = shareUrl(to)
+    try { await navigator.clipboard.writeText(url) } catch { window.prompt('Copy this link', url) }
+    setDone(true)
+    setTimeout(() => setDone(false), 1800)
+  }
+  return <button type="button" className="hub-share" onClick={copy}>{done ? 'Link copied' : 'Copy share link'}</button>
+}
+
 export default function Hub() {
+  isSolo() // /?all switches share mode off
   return (
     <div className="hub">
       <header className="hub-head">
         <span className="hub-badge">Demo sites</span>
         <h1>
-          Twelve sample websites, <em>ready to present</em>
+          Fifteen sample websites, <em>ready to present</em>
         </h1>
         <p>
-          Five single-page sites and seven multi-page sites. Names, numbers and pictures are placeholders, so they can be shown to any client. Open one, click around, then use the “All demos” button to come back.
+          Six single-page sites and nine multi-page sites. Names, numbers and pictures are placeholders, so they can be shown to any client. Open one, click around, then use the “All demos” button to come back. “Copy share link” gives a link to that one demo only, with no way back to the others.
         </p>
       </header>
       <div className="hub-grid">
         {demos.map((d, i) => (
           <Reveal key={d.to} delay={i * 80}>
+            <div className="hub-wrap">
             <Link to={d.to} className="hub-card">
               <Ph seed={i + 3} hue={d.hue} ratio="16 / 9" showLabel={false} />
               <div className="hub-body">
@@ -42,6 +60,8 @@ export default function Hub() {
                 <span className="hub-open">Open demo →</span>
               </div>
             </Link>
+            <ShareButton to={d.to} />
+            </div>
           </Reveal>
         ))}
       </div>

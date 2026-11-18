@@ -12,6 +12,9 @@ import { school } from './data/school.js'
 import Creator from './spa/Creator.jsx'
 import { developer, photographer } from './data/portfolio.js'
 import { ScrollTop } from './shared/hooks.jsx'
+import Dj from './spa/Dj.jsx'
+import { events } from './data/events.js'
+import { resort } from './data/resort.js'
 import { mp } from './data/mp.js'
 import { ps } from './data/ps.js'
 
@@ -33,6 +36,9 @@ export default function App() {
         <Route path="/spa/creator" element={<Creator />} />
         <Route path="/mpa/photographer/*" element={<MiniSite site={photographer} />} />
         <Route path="/mpa/developer/*" element={<MiniSite site={developer} />} />
+        <Route path="/spa/dj" element={<Dj />} />
+        <Route path="/mpa/events/*" element={<MiniSite site={events} />} />
+        <Route path="/mpa/resort/*" element={<MiniSite site={resort} />} />
         <Route path="*" element={<Hub />} />
       </Routes>
     </>
