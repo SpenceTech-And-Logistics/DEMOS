@@ -33,10 +33,12 @@ npm run dev
 ```
 
 ## Deploy (Cloudflare Workers)
-```
-npm run build
-npx wrangler deploy
-```
+`wrangler.jsonc` builds the site itself (`npm run build`) before uploading `dist/`, so the Cloudflare settings only need:
+- Build command: leave empty (or `npm run build`)
+- Deploy command: `npx wrangler deploy`
+- Root directory: `/`
+
+From a computer: `npx wrangler deploy`. Every address works on refresh and as a direct link, because unknown paths fall back to the app.
 
 ## Editing the sample content
 - MP and PS text: `src/data/mp.js`, `src/data/ps.js`
